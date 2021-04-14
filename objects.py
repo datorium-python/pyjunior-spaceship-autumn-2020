@@ -41,7 +41,7 @@ class Missile:
 
     # class attribute - общий для всех объектов
     image = pygame.image.load("missile.png")
-    speed = -0.3 
+    speed = -0.7 
 
     # __init__ создает объект
     # initialize -> создать
@@ -62,7 +62,7 @@ class Asteroid:
 
     # class attribute - общий для всех объектов
     image = pygame.image.load("asteroid.png")
-    speed = 0.3 
+    speed = 0.5 
 
     # __init__ создает объект
     # initialize -> создать

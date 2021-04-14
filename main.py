@@ -31,7 +31,7 @@ def render(spaceship, missiles, asteroids):
     pygame.display.update()
 
 CREATE_ASTEROID_EVENT = pygame.USEREVENT
-pygame.time.set_timer(CREATE_ASTEROID_EVENT, 275)
+pygame.time.set_timer(CREATE_ASTEROID_EVENT, 150)
 
 spaceship = Spaceship(x_position=1, y_position=1)
 missiles = []
@@ -80,17 +80,20 @@ while True:
         if asteroid.y_position >= window.get_height():
             asteroids.remove(asteroid)
 
+        for missile in missiles:
+            if asteroid.has_colided(missile):
+                asteroids.remove(asteroid)
+                missiles.remove(missile)
+                break
+
 
 
     render(spaceship, missiles, asteroids)
 
-# 77 линий
-# cоздадим модуль в котором будут классы
-# Spaceship, Missile, Asteroid 
 
-# научим ракеты летать
-# создадим астероиды
-
-
-# каждые 0.375s появляет астероид
-# каждые 0.375 какое-то событие
+# поменять скорости ЕСТЬ!!!!!!!!!!!!!!!!!!!!!!
+# показать взрыв!!!!!!!!! 
+# столкнуться с кораблем (здоровье)
+# показасть счет и здоворвье
+# показать game over
+# добавить музыку
