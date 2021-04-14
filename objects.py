@@ -77,3 +77,17 @@ class Asteroid:
     def draw_asteroid(self, window):
         coordinates = (self.x_position, self.y_position)
         window.blit(Asteroid.image, coordinates)
+
+    def has_colided(self, entity):
+        # get rectangle – получить прямоугольник
+        asteroid_rect = Asteroid.image.get_rect()
+        asteroid_rect.topleft = (self.x_position, self.y_position)
+
+        entity_rect = entity.image.get_rect()
+        entity_rect.topleft = (entity.x_position, entity.y_position)
+
+        # return True или False
+        return asteroid_rect.colliderect(entity_rect)
+
+        
+        

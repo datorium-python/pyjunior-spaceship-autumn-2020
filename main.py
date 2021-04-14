@@ -77,6 +77,11 @@ while True:
     for asteroid in asteroids:
         asteroid.change_position()
 
+        if asteroid.y_position >= window.get_height():
+            asteroids.remove(asteroid)
+
+
+
     render(spaceship, missiles, asteroids)
 
 # 77 линий
