@@ -8,10 +8,20 @@ BLACK = (0, 0, 0)
 SIZE = (480, 715)
 ICON = pygame.image.load("asteroid.png")
 BACKGROUND = pygame.image.load("stars.jpg")
+EXPLOSION_IMAGE = pygame.image.load("explosion.png")
 
 window = pygame.display.set_mode(SIZE)
 pygame.display.set_caption("Destroy asteroids!")
 pygame.display.set_icon(ICON)
+
+
+def draw_explosion(asteroid):
+    
+    coordinates = (asteroid.x_position, asteroid.y_position)
+    window.blit(EXPLOSION_IMAGE, coordinates)
+
+    pygame.display.update()
+    pygame.time.delay(50)
 
 
 def render(spaceship, missiles, asteroids):
@@ -82,6 +92,7 @@ while True:
 
         for missile in missiles:
             if asteroid.has_colided(missile):
+                draw_explosion(asteroid)
                 asteroids.remove(asteroid)
                 missiles.remove(missile)
                 break
